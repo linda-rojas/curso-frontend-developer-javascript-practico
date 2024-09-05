@@ -2,7 +2,7 @@ const navbarEmail = document.querySelector(".navbar-email");
 const desktopMenu = document.querySelector(".desktop-menu");
 const menuHamburguesa = document.querySelector(".menu");
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
-const asideProductDetail = document.querySelector(".product-detail");
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 const mobileMenu = document.querySelector(".mobile-menu");
 const cardsContainerProducts = document.querySelector(".cards-container");
 
@@ -13,22 +13,22 @@ menuCarritoIcon.addEventListener("click", toggleMenuCarritoIcon);
 
 //De la clase desktopMenu traeme dentro de esa lista de clases la clase inactive
 function toggleDesktopMenu() {
-  const isAsideClosed = asideProductDetail.classList.contains("inactive");
+  const isAsideClosed = shoppingCartContainer.classList.contains("inactive");
 
   // si no esta cerrado entonces agregueme la clase inactive que esta en mobileMenu
   if (!isAsideClosed) {
-    asideProductDetail.classList.add("inactive");
+    shoppingCartContainer.classList.add("inactive");
   }
 
   desktopMenu.classList.toggle("inactive");
 }
 
 function toggleMenuHamburguesa() {
-  const isAsideClosed = asideProductDetail.classList.contains("inactive");
+  const isAsideClosed = shoppingCartContainer.classList.contains("inactive");
 
   // si no esta cerrado entonces agregueme la clase inactive que esta en mobileMenu
   if (!isAsideClosed) {
-    asideProductDetail.classList.add("inactive");
+    shoppingCartContainer.classList.add("inactive");
   }
 
   mobileMenu.classList.toggle("inactive");
@@ -43,7 +43,7 @@ function toggleMenuCarritoIcon() {
     mobileMenu.classList.add("inactive");
   }
 
-  asideProductDetail.classList.toggle("inactive");
+  shoppingCartContainer.classList.toggle("inactive");
 }
 
 /* <section class="main-container">
