@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+:root {
+  --main-font: 'Quicksand', sans-serif;
+  --white: #FFFFFF;
+  --black: #000000;
+  --very-light-pink: #d1cbcb;
+  --text-input: #ece9e9;
+  --text-input-field: #9d9999;
+  --hospital-green: #5cd56c;
+  --hospital-green-hover: #42974e;
+  --sm: 14px;
+  --md: 16px;
+  --lg: 18px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--main-font);
+}
