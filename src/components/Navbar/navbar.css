@@ -1,0 +1,48 @@
+nav {
+    background-color: white;
+    /* Fijarlo con fondo para que no se vea transparente */
+    z-index: 1000;
+    /* Para que esté por encima del contenido */
+}
+
+.navbar-email,
+.category {
+    text-decoration: none;
+    color: var(--text-input-field);
+    border: 1px solid var(--white);
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.category:hover {
+    border: 1px solid var(--hospital-green);
+    color: var(--hospital-green);
+}
+
+.navbar-email:hover {
+    color: var(--hospital-green);
+}
+
+.navbar-email {
+    user-select: none;
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE/Edge */
+}
+
+@media (max-width: 640px) {
+    .menu {
+        display: block;
+    }
+
+    .navbar-left ul {
+        display: none;
+    }
+
+    .navbar-email {
+        display: none;
+    }
+}

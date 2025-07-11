@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css'
-import LoginUser from './components/LoginUser/LoginUser';
+import Navbar from './components/navbar/Navbar';
 
 function App() {
 
@@ -9,7 +9,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<LoginUser />} />
+          <Route path="/" element={<Navbar />} />
         </Routes>
       </BrowserRouter>
     </>

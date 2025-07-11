@@ -1,67 +1,12 @@
-# 🛍️ Plataforma de Comercio Electrónico (Tienda Virtual)
+# React + Vite
 
-Este proyecto es una **aplicación full-stack** para una tienda virtual. Permite a los usuarios iniciar sesión y, próximamente, realizar compras, ver productos y gestionar su cuenta. El sistema está dividido en frontend y backend, e incluye autenticación, diseño responsivo y conexión con base de datos.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
----
+Currently, two official plugins are available:
 
-## 📁 Estructura del Proyecto
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-/Frontend-developer-Javascript/
-├── frontend/ # Aplicación cliente con React + Vite y Tailwind CSS
-└── backend/ # API REST con Node.js + Express, BD MySQL
+## Expanding the ESLint configuration
 
----
-
-## 🚀 Frontend
-
-- **Tecnologías:**
-
-  - HTML/CSS
-  - [Tailwind CSS](https://tailwindcss.com/)
-
-- **Funcionalidad actual:**
-
-  - Se instaló y configuró Tailwind CSS.
-  - Se creó el componente `LoginUser`, que incluye campos para:
-    - usuario (correo)
-    - Contraseña
-
-- **Próximos pasos:**
-  - Agregar validaciones de usuario y contraseña.
-  - Conectar el formulario con la API del backend para autenticación.
-
----
-
-## 🛠 Backend
-
-- Inicializado con `npm init -y`
-- Se instalaron las siguientes dependencias:
-
-````bash
-
-npm install express mysql2 cors bcrypt jsonwebtoken
-
-
-Tecnologías utilizadas:
-
-Express: framework para la API REST
-
-MySQL2: conexión con base de datos
-
-CORS: permite la comunicación entre frontend y backend
-
-bcrypt: encriptación de contraseñas
-
-jsonwebtoken (JWT): autenticación segura basada en tokens
-
-Estructura futura del backend:
-
-Rutas para autenticación
-
-Validación de credenciales
-
-Conexión con base de datos MySQL para almacenar usuarios y productos
-
-```bash
-
-````
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
