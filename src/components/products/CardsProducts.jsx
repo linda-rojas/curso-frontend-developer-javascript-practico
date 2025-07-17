@@ -2,9 +2,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import "./cardsProducts.css";
 
-export function CardsProducts({ products }) {
-
-
+export function CardsProducts({ products, onSelectProduct  }) {
+  
   const handleAddToCart = (product, e) => {
     e.stopPropagation();
     e.preventDefault();
@@ -22,6 +21,7 @@ export function CardsProducts({ products }) {
     setTimeout(() => btn.classList.remove("added"), 500);
   };
 
+
   return (
     <>
     <section className="mt-[3rem] p-[0.5rem] pt-[3rem] sm:p-[3rem] sm:mt-[3rem]">
@@ -34,12 +34,13 @@ export function CardsProducts({ products }) {
             <img
               src={product.image}
               alt={product.title}
-              className="w-[190px] h-[190px] object-contain sm:block sm:w-[240px] sm:h-[240px] sm:rounded-[20px]"
+              className="w-[190px] h-[190px] object-contain cursor-pointer sm:block sm:w-[240px] sm:h-[240px] sm:rounded-[20px]"
+              onClick={() => onSelectProduct(product)}
             />
             <div className="max-w-full flex justify-between items-center mt-[12px]">
               <div className="m-0">
                 <p className="font-bold text-[var(--md)] mt-0 mb-[4px]">${product.price}</p>
-                <p className="w-[110px] max-w-full block truncate text-[var(--text-input-field)] sm:w-[150px] sm:block sm:text-[var(--md)] sm:text-[var(--text-input-field)] sm:mt-0 sm:mb-0">{product.title}</p>
+                <p className="w-[110px] max-w-full block truncate text-[var(--text-input-field)] sm:w-[150px] sm:block sm:text-[16px] sm:text-[var(--text-input-field)] sm:mt-0 sm:mb-0">{product.title}</p>
               </div>
               <figure
                 className="add-to-cart-btn flex items-center justify-center m-0 w-[35px] h-[35px] sm:w-[38px] sm:h-[38px] cursor-pointer rounded-full bg-[var(--hospital-green)]"
