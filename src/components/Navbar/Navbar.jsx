@@ -12,7 +12,7 @@ import { useToggle } from "../../hooks/useToggle";
 import { useIsMobile } from "../../hooks/mobilebreakpoint";
 
 
-export default function Navbar({ setCategory, selectedCategory}) {
+export default function Navbar({ setCategory, selectedCategory, mobileTitle = null }) {
 
   // Estado y funciones para mostrar/ocultar el panel de ordenes (carrito)
   const [showOrder, toggleOrder, , setOrderFalse] = useToggle(false);
@@ -89,7 +89,13 @@ export default function Navbar({ setCategory, selectedCategory}) {
         )}
 
         <div className="navbar-left flex">
-          <img src={logo} alt="logo" className="w-[120px]" />
+          {isMobile && mobileTitle ? (
+            <span className="text-lg font-bold h-[60px] flex items-center">
+              {mobileTitle}
+            </span>
+          ) : (
+            <img src={logo} alt="logo" className="w-[126px] sm:w-[120px]" />
+          )}
           <ul className="hidden sm:list-none sm:flex sm:gap-1 sm:p-0 sm:m-0 sm:items-center sm:h-[60px] sm:ml-[12px]">
             {Object.keys(categoryMap).map((key) => (
               <li key={key}>
@@ -107,7 +113,7 @@ export default function Navbar({ setCategory, selectedCategory}) {
         <div className="navbar-right">
           <ul className="list-none flex p-0 m-0 items-center h-[60px]">
             <li 
-              className="hidden sm:block sm:text-[15px] sm:text-[var(--text-input-field)] sm:mr-[12px] sm:cursor-pointer sm:p-[8px] sm:border sm:border-[var(--white)] sm:rounded-lg  sm:hover:text-[var(--hospital-green)] sm:select-none" 
+              className="hidden select-none sm:block sm:text-[15px] sm:text-[var(--text-input-field)] sm:mr-[12px] sm:cursor-pointer sm:p-[8px] sm:border sm:border-[var(--white)] sm:rounded-lg  sm:hover:text-[var(--hospital-green)]" 
               ref={desktopBtnRef}
               onClick={toggleDesktopMenu}
             >

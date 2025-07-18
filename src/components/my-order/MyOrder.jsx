@@ -66,24 +66,43 @@ export default function MyOrder() {
 
   // deja de mostrarse my-order al dar click
     const [showMyOrder, setShowMyOrder] = useState(true);
-  
 
+    const handleCheckout = () => {
+      if (cart.length === 0) return;
+
+      const newOrder = {
+        id: Date.now(), // id único para la orden
+        date: new Date().toISOString(),
+        products: [...cart],
+      };
+
+      // Recuperar órdenes anteriores y agregar la nueva
+      const previousOrders = JSON.parse(localStorage.getItem("orders")) || [];
+      const updatedOrders = [...previousOrders, newOrder];
+
+      localStorage.setItem("orders", JSON.stringify(updatedOrders));
+
+      // Vaciar carrito
+      setCart([]);
+      updateCart([]);
+    };
+  
   return (
     <>
     {showMyOrder && (
 
       <aside className="w-full right-0 p-[24px] sm:w-[360px] sm:absolute sm:right-[2rem] sm:bg-[var(--white)] sm:border sm:border-[var(--very-light-pink)] sm:rounded-[5px] sm:box-content">
-        <div className="flex mb-[1rem]">
+        <div className="w-[230px] flex mb-[2rem] justify-between">
 
             <img 
             src="/icons/flechita.svg" 
             alt="arrow" 
-            className="w-[10px] rotate-180 mr-[14px] cursor-pointer hover:w-[13px]"
+            className="w-[12px] rotate-180 mr-[14px] cursor-pointer hover:w-[13px]"
             onClick={() => setShowMyOrder(false)}
           />
           
           
-          <p className="text-[var(--lg)] font-bold">My order</p>
+          <p className="text-[21px] font-bold select-none sm:text-[20px]">My order</p>
         </div>
 
         <div>
@@ -100,13 +119,13 @@ export default function MyOrder() {
                   className="w-[70px] h-[70px] object-contain rounded-[20px]"
                   />
               </figure>
-              <p className="truncate text-[var(--text-input-field)]">{product.title}</p>
-              <p className="text-[var(--md)] font-bold">${product.price}</p>
+              <p className="truncate text-[var(--text-input-field)] select-none">{product.title}</p>
+              <p className="text-[var(--md)] font-bold select-none">${product.price}</p>
               <figure onClick={() => removeFromCart(product.id)} className="cursor-pointer">
                 <FontAwesomeIcon icon={faXmark} size="1rem" className="text-[25px] text-[var(--text-input-field)] cursor-pointer hover:text-[#ee3622da]"  />
               </figure>
               {product.quantity > 1 && (
-                <div className="max-w-max">
+                <div className="max-w-max select-none">
                   <button 
                     className="mr-[5px] bg-[#ee3622da] border-0 text-white
                     text-[1.1rem] w-[25px] h-[25px] rounded-[70%]
@@ -126,11 +145,16 @@ export default function MyOrder() {
 
           {groupedCart.length > 0 ? (
             <>
-              <div className="grid grid-cols-[auto_1fr] gap-4 items-center mb-6 rounded-[8px] p-[10px_24px] bg-[var(--text-input)]">
-                <p className="flex flex-col"><span className="text-[var(--md)] font-bold">Total</span></p>
-                <p className="flex justify-end font-bold">${total.toFixed(2)}</p>
+              <div className="grid grid-cols-[auto_1fr] gap-4 items-center mb-6 rounded-[8px] p-[10px_24px] bg-[var(--text-input)] select-none">
+                <p className="flex flex-col"><span className="text-[var(--md)] font-bold select-none">Total</span></p>
+                <p className="flex justify-end font-bold select-none">${total.toFixed(2)}</p>
               </div>
-              <button className="bg-[var(--hospital-green)] rounded-[8px] border-0 text-white w-full cursor-pointer text-[16px] font-bold h-[50px] hover:bg-[var(--hospital-green-hover)]">Checkout</button>
+              <button 
+              onClick={handleCheckout}
+                className="bg-[var(--hospital-green)] rounded-[8px] border-0 text-white w-full cursor-pointer text-[16px] font-bold h-[50px] hover:bg-[var(--hospital-green-hover)] select-none"
+              >
+                  Checkout
+              </button>
             </>
           ) : (
             <p style={{ textAlign: "center" }}>Tu carrito está vacío.</p>

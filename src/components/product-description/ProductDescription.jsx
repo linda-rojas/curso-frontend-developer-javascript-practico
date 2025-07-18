@@ -56,12 +56,12 @@ export function ProductDescription({ product, onClose }) {
               alt={product.title} 
               className="w-full h-[360px] object-contain rounded-[24px_24px_0_24px]"
             />
-            <div className="m-[24px_24px_0_24px]">
+            <div className="m-[24px_24px_0_24px] select-none">
                 <p className="font-bold text-[16px] mt-0 mb-[4px]">${product.price}</p>
                 <p className="text-[#565353] text-[16px] mt-0 mb-[36px]">{product.title}</p>
                 <p className="text-[var(--text-input-field)] text-[16px] mt-0 mb-[36px]">{product.description}</p>
                 <button 
-                  className="add-to-cart-button flex items-center justify-center gap-[1rem] bg-[var(--hospital-green)] rounded-[8px] border-0 text-white w-full cursor-pointer text-[16px] font-bold h-[50px] mb-[10px]"
+                  className="add-to-cart-button flex items-center justify-center gap-[1rem] bg-[var(--hospital-green)] rounded-[8px] border-0 text-white w-full cursor-pointer text-[16px] font-bold h-[50px] mb-[10px] select-none"
                   ref={productDescriptionBtnRef}
                   onClick={(e) => handleAddToCart(product, e)}
                 >

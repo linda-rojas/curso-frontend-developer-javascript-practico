@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { forwardRef } from "react";
 
 export const UserMenuMobile = forwardRef(({ setCategory, selectedCategory, onClose}, ref) => {
@@ -38,12 +39,14 @@ export const UserMenuMobile = forwardRef(({ setCategory, selectedCategory, onClo
       </ul>
 
       <ul className="p-0 mt-[24px] list-none">
-        <li className="mb-[24px]">
-          <a 
-            href="#"
-            className="no-underline text-[var(--black)] font-bold"
+        <li className="mb-[24px] select-none">
+          <Link 
+            to="/orders" 
+            className="text-[var(--black)] no-underline font-bold"
             onClick={onClose}
-            >My orders</a>
+            >
+                My orders
+          </Link>
         </li>
 
       </ul>
